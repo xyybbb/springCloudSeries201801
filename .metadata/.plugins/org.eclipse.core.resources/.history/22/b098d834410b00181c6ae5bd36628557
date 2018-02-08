@@ -1,0 +1,12 @@
+#此处的名字一定跟Git服务器中的文件夹的名子相同（一个文件夹就=一个业务应用）
+spring.application.name=project1
+spring.cloud.config.label=master
+spring.cloud.config.profile=dev
+##spring.cloud.config.uri= http://localhost:8888/
+server.port=8861
+
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+spring.cloud.config.discovery.enabled=true
+#指定configServer端的name,也就是configServer端spring.application.name的值
+#注意此处写的是ConfigServer的ServiceId，这样才能使用ConfigServer的集群
+spring.cloud.config.discovery.serviceId=config-server

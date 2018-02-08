@@ -1,0 +1,33 @@
+package com.example.demo;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+//此处不需要启动configClient，也没有这个Spring注解
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+	
+	@Value("${user.name}")
+    String userName;
+	
+//	@Value("${user.employeeNumber}")
+//    String employeeNumber;
+	
+    @RequestMapping(value = "/hiUserName")
+    public String hi(){
+        return userName;
+    }
+    
+//    @RequestMapping(value = "/hiEployeeNumber")
+//    public String hi2(){
+//        return employeeNumber;
+//    }
+}
